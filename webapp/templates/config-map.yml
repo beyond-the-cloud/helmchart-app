@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "webapp.name" . }}-db-config
+data:
+  MYSQL_DB_HOST: {{ .Values.mysql.dbHost }}
+  MYSQL_DB_PORT: {{ .Values.mysql.dbPort }}
+  MYSQL_DB_NAME: {{ .Values.mysql.dbName }}
+  spring.profiles.active: {{ .Values.mysql.spring }}

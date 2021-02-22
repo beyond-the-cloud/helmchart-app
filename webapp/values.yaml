@@ -1,0 +1,28 @@
+image:
+  repository: bh7cw/webapp
+  name: webapp
+
+imagePullSecrets: [docker-hub]
+port: 8080
+
+readinessProbe:
+  path: /actuator/health
+  initialDelaySeconds: 45
+  periodSeconds: 5
+
+livenessProbe:
+  path: /v1/helloworld
+  initialDelaySeconds: 60
+  periodSeconds: 5
+
+resources:
+  memory: 256Mi
+  cpu: 500m
+
+mysql:
+  dbHost: localhost
+  dbPort: 3306
+  dbName: csye7125
+  spring: prod
+  dbUsername: root
+  dbPassword: MysqlPwd123
