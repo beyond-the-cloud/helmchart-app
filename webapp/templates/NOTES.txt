@@ -1,0 +1,5 @@
+# helm lint webapp
+# helm package webapp
+# helm template MyReleaseName webapp
+# helm install MyReleaseName ./webapp
+# helm uninstall MyReleaseName ./webapp

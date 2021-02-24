@@ -1,0 +1,36 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: {{ .Release.Name }}-pod
+  labels:
+  {{- include "webapp.labels" . | nindent 4 }}
+spec:
+  imagePullSecrets:
+  - name: {{ .Values.imagePullSecrets }}
+  containers:
+  - name: {{ .Values.image.name }}
+    image: {{ .Values.image.repository }}:latest
+    envFrom:
+    - configMapRef:
+        name: {{ .Release.Name }}-db-config
+    - secretRef:
+        name: {{ .Release.Name }}-db-secret
+    readinessProbe:
+      httpGet:
+        path: {{ .Values.readinessProbe.path }}
+        port: {{ .Values.port }}
+      initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
+      periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
+    livenessProbe:
+      httpGet:
+        path: {{ .Values.livenessProbe.path }}
+        port: {{ .Values.port }}
+      initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
+      periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
+    resources:
+      limits:
+        memory: {{ .Values.resources.memory }}
+        cpu: {{ .Values.resources.cpu }}
+    ports:
+      - containerPort: {{ .Values.port }}
