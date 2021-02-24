@@ -2,7 +2,7 @@ image:
   repository: bh7cw/webapp
   name: webapp
 
-imagePullSecrets: [docker-hub]
+imagePullSecrets: docker-hub
 port: 8080
 
 readinessProbe:
@@ -20,7 +20,7 @@ resources:
   cpu: 500m
 
 mysql:
-  dbHost: localhost
+  dbHost: csye7125.cu8n1b6fktws.us-east-1.rds.amazonaws.com
   dbPort: 3306
   dbName: csye7125
   spring: prod
