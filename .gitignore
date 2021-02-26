@@ -1,3 +1,8 @@
+.release-it.json
+package-lock.json
+package.json
+node_modules/
+
 # General files for the project
 pkg/*
 *.pyc
