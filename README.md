@@ -7,4 +7,4 @@ Install the helm:
 Uninstall the helm:
 `helm uninstall {{ .Release.Name }}`
 
-Check NOTES.txt for details.
+Check NOTES.txt for more details.
