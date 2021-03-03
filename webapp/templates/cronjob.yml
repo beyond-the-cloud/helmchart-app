@@ -4,7 +4,7 @@ kind: CronJob
 metadata:
   name: {{ .Release.Name }}-cronjob
 spec:
-  schedule: "*/1 * * * *"
+  schedule: {{ .Values.cronjob.schedule | quote }}
   jobTemplate:
     spec:
       template:
@@ -12,13 +12,13 @@ spec:
           imagePullSecrets:
           - name: {{ .Values.imagePullSecrets }}
           containers:
-          - name: topstories
-            image: bh7cw/topstories:1.0
-            imagePullPolicy: IfNotPresent
-          - name: newstories
-            image: bh7cw/newstories:1.0
-            imagePullPolicy: IfNotPresent
-          - name: beststories
-            image: bh7cw/beststories:1.0
-            imagePullPolicy: IfNotPresent
-          restartPolicy: OnFailure
+          - name: {{ .Values.cronjob.top.name }}
+            image: {{ .Values.cronjob.top.image }}
+            imagePullPolicy: {{ .Values.cronjob.imagePullPolicy }}
+          - name: {{ .Values.cronjob.new.name }}
+            image: {{ .Values.cronjob.new.image }}
+            imagePullPolicy: {{ .Values.cronjob.imagePullPolicy }}
+          - name: {{ .Values.cronjob.best.name }}
+            image: {{ .Values.cronjob.best.image }}
+            imagePullPolicy: {{ .Values.cronjob.imagePullPolicy }}
+          restartPolicy: {{ .Values.cronjob.restartPolicy }}

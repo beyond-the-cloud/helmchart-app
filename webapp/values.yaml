@@ -37,3 +37,17 @@ deployment:
   type: RollingUpdate
   svc:
     port: 80
+
+cronjob:
+  schedule: "*/10 * * * *"
+  imagePullPolicy: IfNotPresent
+  restartPolicy: OnFailure
+  top:
+    name: topstories
+    image: bh7cw/topstories:1.0
+  new:
+    name: newstories
+    image: bh7cw/newstories:1.0
+  best:
+    name: beststories
+    image: bh7cw/beststories:1.0
