@@ -20,12 +20,12 @@ resources:
   cpu: 2000m
 
 mysql:
-  dbHost: dbHost
+  dbHost: my-instance.cvefazkbfyp3.us-east-1.rds.amazonaws.com
   dbPort: 3306
   dbName: csye7125
   spring: prod
-  dbUsername: root
-  dbPassword: dbPassword
+  dbUsername: springuser
+  dbPassword: thepassword
 
 deployment:
   replicas: 3
