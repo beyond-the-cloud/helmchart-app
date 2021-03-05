@@ -24,7 +24,7 @@ mysql:
   dbPort: 3306
   dbName: csye7125
   spring: prod
-  dbUsername: springuser
+  dbUsername: root
   dbPassword: thepassword
 
 deployment:
