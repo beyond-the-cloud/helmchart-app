@@ -44,10 +44,10 @@ cronjob:
   restartPolicy: OnFailure
   top:
     name: topstories
-    image: bh7cw/topstories:1.0
+    image: bh7cw/topstories:latest
   new:
     name: newstories
-    image: bh7cw/newstories:1.0
+    image: bh7cw/newstories:latest
   best:
     name: beststories
-    image: bh7cw/beststories:1.0
+    image: bh7cw/beststories:latest
