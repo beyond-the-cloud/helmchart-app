@@ -37,3 +37,5 @@ git reset --hard HEAD
 
 npx release-it patch --ci --no-git.requireUpstream --no-git.requireCleanWorkingDir --github.release --github.releaseName="webapp-v${NEW_VERSION}" --github.assets=webapp-v${NEW_VERSION}.zip
 ```
+
+
