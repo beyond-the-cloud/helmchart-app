@@ -4,7 +4,7 @@ kind: Service
 metadata:
   name: {{ .Release.Name }}-deployment-svc
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: {{ .Release.Name }}-deployment
   ports:
@@ -31,6 +31,10 @@ spec:
     metadata:
       labels:
         app: {{ .Release.Name }}-deployment
+      {{- with .Values.deployment.annotations }}
+      annotations:
+{{ toYaml . | indent 8 }}
+      {{- end }}
     spec:
       imagePullSecrets:
       - name: {{ .Values.imagePullSecrets }}
