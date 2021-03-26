@@ -2,7 +2,7 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: {{ .Release.Name }}-cronjob
+  name: {{ .Release.Name }}-topstories-cronjob
 spec:
   schedule: {{ .Values.cronjob.schedule | quote }}
   jobTemplate:
@@ -15,9 +15,39 @@ spec:
           - name: {{ .Values.cronjob.top.name }}
             image: {{ .Values.cronjob.top.image }}
             imagePullPolicy: {{ .Values.cronjob.imagePullPolicy }}
+          restartPolicy: {{ .Values.cronjob.restartPolicy }}
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ .Release.Name }}-newstories-cronjob
+spec:
+  schedule: {{ .Values.cronjob.schedule | quote }}
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          imagePullSecrets:
+          - name: {{ .Values.imagePullSecrets }}
+          containers:
           - name: {{ .Values.cronjob.new.name }}
             image: {{ .Values.cronjob.new.image }}
             imagePullPolicy: {{ .Values.cronjob.imagePullPolicy }}
+          restartPolicy: {{ .Values.cronjob.restartPolicy }}
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ .Release.Name }}-beststories-cronjob
+spec:
+  schedule: {{ .Values.cronjob.schedule | quote }}
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          imagePullSecrets:
+          - name: {{ .Values.imagePullSecrets }}
+          containers:
           - name: {{ .Values.cronjob.best.name }}
             image: {{ .Values.cronjob.best.image }}
             imagePullPolicy: {{ .Values.cronjob.imagePullPolicy }}
