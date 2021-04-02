@@ -60,3 +60,10 @@ spec:
             port: {{ .Values.port }}
           initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
           periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
+        resources:
+          requests:
+            memory: {{ .Values.resources.memory }}
+            cpu: {{ .Values.resources.cpu }}
+          limits:
+            memory: {{ .Values.resources.memory }}
+            cpu: {{ .Values.resources.cpu }}
