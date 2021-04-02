@@ -19,6 +19,12 @@ resources:
   memory: 256Mi
   cpu: 500m
 
+hpa:
+  minReplicas: 1
+  maxReplicas: 2
+  target:
+    averageUtilization: 5
+
 mysql:
   dbHost: rds.cvefazkbfyp3.us-east-1.rds.amazonaws.com
   dbPort: 3306
