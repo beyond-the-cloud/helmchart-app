@@ -26,7 +26,7 @@ hpa:
     averageUtilization: 5
 
 mysql:
-  dbHost: rds.cvefazkbfyp3.us-east-1.rds.amazonaws.com
+  dbHost: 35.196.0.248
   dbPort: 3306
   dbName: csye7125
   spring: prod
@@ -34,7 +34,7 @@ mysql:
   dbPassword: MysqlPwd123
 
 deployment:
-  replicas: 3
+  replicas: 1
   progressDeadlineSeconds: 600
   minReadySeconds: 30
   rollingUpdate:
