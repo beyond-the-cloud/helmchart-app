@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-db-config
+data:
+  MYSQL_DB_HOST: {{ .Values.mysql.dbHost | quote }}
+  MYSQL_DB_PORT: {{ .Values.mysql.dbPort | quote }}
+  MYSQL_DB_NAME: {{ .Values.mysql.dbName | quote }}
+  spring.profiles.active: {{ .Values.mysql.spring | quote }}
