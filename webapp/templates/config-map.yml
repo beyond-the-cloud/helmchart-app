@@ -7,3 +7,5 @@ data:
   MYSQL_DB_PORT: {{ .Values.mysql.dbPort | quote }}
   MYSQL_DB_NAME: {{ .Values.mysql.dbName | quote }}
   spring.profiles.active: {{ .Values.mysql.spring | quote }}
+  KAFKA_HOST: {{ .Values.kafka.host | quote }}
+  KAFKA_PORT: {{ .Values.kafka.port | quote }}

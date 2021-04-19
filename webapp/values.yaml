@@ -35,6 +35,10 @@ mysql:
   dbUsername: root
   dbPassword: MysqlPwd123
 
+kafka:
+  host: kafka.default.svc.cluster.local
+  port: 9092
+
 deployment:
   replicas: 1
   progressDeadlineSeconds: 600
