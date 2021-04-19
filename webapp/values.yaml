@@ -1,3 +1,5 @@
+version: v1
+
 image:
   repository: bh7cw/webapp
   name: webapp
