@@ -25,10 +25,10 @@ hpa:
   minReplicas: 1
   maxReplicas: 2
   target:
-    averageUtilization: 5
+    averageUtilization: 50
 
 mysql:
-  dbHost: 35.237.141.28
+  dbHost: 35.229.122.10
   dbPort: 3306
   dbName: csye7125
   spring: prod
