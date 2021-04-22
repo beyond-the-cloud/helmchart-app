@@ -57,7 +57,7 @@ deployment:
 
 cronjob:
   schedule: "*/10 * * * *"
-  imagePullPolicy: IfNotPresent
+  imagePullPolicy: Always
   restartPolicy: OnFailure
   top:
     name: topstories
