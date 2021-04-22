@@ -8,6 +8,10 @@ spec:
   jobTemplate:
     spec:
       template:
+        metadata:
+          labels:
+            app: {{ .Release.Name }}-cronjob
+            version: {{ .Values.version }}
         spec:
           imagePullSecrets:
           - name: {{ .Values.imagePullSecrets }}
@@ -29,6 +33,10 @@ spec:
   jobTemplate:
     spec:
       template:
+        metadata:
+          labels:
+            app: {{ .Release.Name }}-cronjob
+            version: {{ .Values.version }}
         spec:
           imagePullSecrets:
           - name: {{ .Values.imagePullSecrets }}
@@ -50,6 +58,10 @@ spec:
   jobTemplate:
     spec:
       template:
+        metadata:
+          labels:
+            app: {{ .Release.Name }}-cronjob
+            version: {{ .Values.version }}
         spec:
           imagePullSecrets:
           - name: {{ .Values.imagePullSecrets }}
